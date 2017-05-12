@@ -2,8 +2,8 @@
 # -*- coding: utf-8 -*-
 from __future__ import (print_function, absolute_import)
 
-from matplotlib.pyplot as plt
 import numpy as np
+import matplotlib.pyplot as plt
 import astropy.io.fits as fits
 
 from argparse import ArgumentParser as ap
@@ -39,7 +39,7 @@ if __name__ == '__main__':
   img = hdu[0].data
   if len(img.shape)==4: img = img[0]
   if len(img.shape)==3: img = img[0]
-  nx,ny = img[0].shape
+  nx,ny = img.shape
 
   if args.hflip: img = img[:,::-1]
   if args.vflip: img = img[::-1,:]
@@ -51,8 +51,8 @@ if __name__ == '__main__':
   if args.zr is True:
     med = np.median(img)
     std = np.std(img[img>0])
-    clim[0] = med - std
-    clim[1] = med + 3*std
+    clim[0] = med - 0.1*std
+    clim[1] = med + 3.0*std
 
   imdata = cmap(plt.Normalize(vmin=clim[0], vmax=clim[1])(img))
   plt.imsave(args.img, imdata)
