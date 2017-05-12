@@ -10,13 +10,13 @@ import astropy.io.fits as fits
 from argparse import ArgumentParser as ap
 
 if __name__ == '__main__':
-  parser = ap(description='Convert 3D FITS into a movie file.')
+  parser = ap(description='Convert a 3D FITS file into a movie file.')
   parser.add_argument(
     'fits', type=str,
-    help='source a FITS image.')
+    help='a source FITS image.')
   parser.add_argument(
     'avi', type=str,
-    help='converted a movie file.')
+    help='a converted movie file.')
   parser.add_argument(
     '-f','--fps', dest='fps', type=float, default=24,
     help='frame rate of the movie')
