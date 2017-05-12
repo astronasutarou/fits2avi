@@ -5,7 +5,7 @@ from __future__ import (print_function, absolute_import)
 import matplotlib.animation as anim
 import matplotlib.pyplot as plt
 import numpy as np
-import pyfits as fits
+import astropy.io.fits as fits
 
 from argparse import ArgumentParser as ap
 
